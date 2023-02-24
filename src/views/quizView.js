@@ -109,7 +109,7 @@ export function showQuiz(ctx) {
         ctx.taken.taken++;
 
         quizService.updateStat(ctx.taken.objectId, quizId, ctx.taken.taken);
-
+      
         const {results : correctAnswers} = await solutionService.getByQuizId(quizId);
 
         const answers = questions.map(q => Object.assign({}, {

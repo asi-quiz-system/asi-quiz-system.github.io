@@ -114,7 +114,14 @@ export function showResult(ctx) {
         function answerCard(answer, index) {
             return html`
             <div class="s-answer">
-                <span class=${index !=solutionIndex && index !=correctIndex     ? nothing     : index==solutionIndex     ? 's-correct'
+                <span class=${index != solutionIndex && index != correctIndex 
+                ? nothing  
+                : isCorrect
+                    ? index==solutionIndex
+                        ?'s-correct'
+                        : 's-incorrect' 
+                    : index==correctIndex
+                        ? 's-correct'
                         : 's-incorrect' }>
             
                     ${answer}
